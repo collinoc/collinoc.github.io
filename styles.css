@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #050509;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#skip {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-style: italic;
+}
+
+#prompt-text, #skip {
+    font-weight: 300;
+    text-align: center;
+    user-select: none;
+    color: #646464;
+}
+
+@media screen and (max-width: 600px) {
+    #prompt-text {
+        rotate: 90deg;
+    }
+}
