@@ -11,6 +11,10 @@ html, body {
     background-color: #050509;
 }
 
+.hidden {
+    display: none !important;
+}
+
 main {
     height: 100%;
     display: flex;
@@ -31,6 +35,16 @@ main {
     text-align: center;
     user-select: none;
     color: #646464;
+}
+
+#repeat-indicator {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #27324b;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 600px) {
