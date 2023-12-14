@@ -2,9 +2,7 @@ let prompts = [
     "Who's most likely to blackout tonight",
     "Who's most likely to go home with someone tonight",
     'Who peed the bed way too late in life',
-    'Who needs to get tucked in tonight',
     "Who's had the most partners",
-    "Who's hooked up with the most people in this group",
     'Who was the last to fart',
     "Who's most likely to have 100+ unread texts",
     '"Can I hit your vape?"',
@@ -25,6 +23,57 @@ let prompts = [
     "Who's most likely to catch an STD",
     "Who's most likely to get lost while driving",
     "Who's most likely to have a shattered phone screen",
+    "Who most likely got sent to the principal's office in school",
+    "Who's most likely to get a speeding ticket",
+    'Who could beat everyone else in the group up',
+    "Who's least likely to marry someone of another race",
+    "Who's the pickiest eater",
+    "Who's the hottest mess",
+    "Who's most likely to win a reality TV dating show",
+    'Who would die first on the front lines of a World War',
+    'Who would have the dumbest death',
+    "Who thinks they can beat everyone else up in the group when they can't",
+    'Who has absolutely no tolerance',
+    "Who's the group mom",
+    "Who's the group dad",
+    'Who is literally a baby',
+    "Who's most likely to move to another country without telling anyone",
+    "Who's addicted to their phone",
+    'Who has the leas amount of rizz',
+    "Who's the rizziest rizzler",
+    'Who would you choose to raise your child if you died (not you SO)',
+    "Who's 💩'ed themselves as an adult",
+    "Who's most likely to get caught Fortnite dancing",
+    "Who's most likely to marry rich",
+    "Who's most likely to change their profession to Farmer",
+    "Who's most likely to have an accidental pregnancy",
+    "Who's most likely to have a threesome",
+    "Who's most likely to still get grounded by their parents",
+    "Who's most likely to accidentally kill someone with their cooking",
+    "Who's going to have the most kids",
+    "Who's going to have kids first",
+    "Who's most likely to get a public indecency charge",
+    "Who's most likely to get fired for sleeping on the job",
+    "Who's most likely to need Viagra",
+    "Who's the worst plant mom/dad",
+    "Who's most likely to come back to a boot on their car",
+    "Who's the laziest in bed",
+    "Who's the best liar",
+    'Who would be the best pan handler',
+    "Who' most likely to commit treason",
+    "Who's most likely to catch their house on fire while baking",
+    "Who's most likely to convert to another religion for their significant other",
+    'Who believed in Santa the longest',
+    "Who's most likely to run for President",
+    'Who would eat a bug for the least amount of money',
+    "Who's most likely to join a cult",
+    "Who's most likely to hookup with a stranger tonight",
+    "Who's most likely to start a bar fight",
+    "Who's most likely to have their car stolen",
+    "Who's most likely to throw up on a flight",
+    "Who's most likely to get lost in the woods",
+    "Who's most likely to be a cougar",
+    "Who's most likely to get a golden shower",
 ];
 
 let usedPrompts = [];
@@ -42,6 +91,10 @@ const newPrompt = () => {
             if (prompts.length === 0) {
                 prompts = usedPrompts;
                 usedPrompts = [];
+
+                document
+                    .getElementById('repeat-indicator')
+                    ?.classList.toggle('hidden');
             }
 
             let index = randBoundedInt(prompts.length);
