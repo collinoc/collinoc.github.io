@@ -11,30 +11,13 @@ html, body {
     background-color: #050509;
 }
 
-.hidden {
-    display: none !important;
-}
-
-main {
-    height: 100%;
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#skip {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    cursor: pointer;
-    font-style: italic;
-}
-
-#prompt-text, #skip {
-    font-weight: 300;
-    text-align: center;
+    color: #999;
     user-select: none;
-    color: #646464;
+    -webkit-user-select: none;
 }
 
 #repeat-indicator {
@@ -45,6 +28,10 @@ main {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
+}
+
+.hidden {
+    display: none !important;
 }
 
 @media screen and (max-width: 600px) {

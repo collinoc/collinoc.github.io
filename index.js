@@ -20,10 +20,15 @@ let prompts = [
     "Who's most likely to become a nun",
     "Who's most likely to become a priest",
     "Who's most likely to throw up taking a shot",
+    "Woh's least likely to know how to change a tire",
     "Who's most likely to catch an STD",
     "Who's most likely to get lost while driving",
     "Who's most likely to have a shattered phone screen",
     "Who most likely got sent to the principal's office in school",
+    'Who took the most tries to pass their drivers test',
+    "Who's least likely to get laid tonight",
+    "Who's the worst liar",
+    "Who's most likely to join a pyramid scheme",
     "Who's most likely to get a speeding ticket",
     'Who could beat up everyone else in the group',
     "Who's least likely to marry someone of another race",
@@ -60,7 +65,7 @@ let prompts = [
     "Who's the laziest in bed",
     "Who's the best liar",
     'Who would be the best pan handler',
-    "Who' most likely to commit treason",
+    "Who's most likely to commit treason",
     "Who's most likely to catch their house on fire while baking",
     "Who's most likely to convert to another religion for their significant other",
     'Who believed in Santa the longest',
@@ -84,23 +89,27 @@ const randBoundedInt = (max) => {
 
 const newPrompt = () => {
     const promptTextEle = document.getElementById('prompt-text');
-    let prompt = null;
 
     if (promptTextEle) {
-        while (!prompt || prompt === promptTextEle.innerText) {
-            if (prompts.length === 0) {
-                prompts = usedPrompts;
-                usedPrompts = [];
+        if (!prompts.length) {
+            prompts = usedPrompts;
+            usedPrompts = [];
 
-                document
-                    .getElementById('repeat-indicator')
-                    ?.classList.toggle('hidden');
-            }
-
-            let index = randBoundedInt(prompts.length);
-            [prompt] = prompts.splice(index, 1);
-            usedPrompts.push(prompt);
+            document
+                .getElementById('repeat-indicator')
+                ?.classList.toggle('hidden');
         }
+
+        let prompt, index;
+
+        do {
+            index = randBoundedInt(prompts.length);
+            prompt = prompts[index];
+        } while (prompt === promptTextEle.innerText);
+
+        prompts.splice(index, 1);
+
+        usedPrompts.push(prompt);
 
         promptTextEle.innerText = prompt;
     }
@@ -108,7 +117,10 @@ const newPrompt = () => {
 
 const init = () => {
     newPrompt();
-    document.getElementById('main-view')?.addEventListener('click', newPrompt);
+    document.body?.addEventListener('click', newPrompt);
 };
 
 document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('keypress', (event) => {
+    if (event.key === ' ') newPrompt();
+});
